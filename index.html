@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Your Eyes Only</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 700px;
+    padding: 40px;
+    animation: fadeIn 2s ease forwards;
+}
+
+input {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background: #ff4e88;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #ff2e6f;
+}
+
+.hidden {
+    display: none;
+}
+
+.letter {
+    opacity: 0;
+    animation: reveal 3s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes reveal {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="login">
+    <h1>For Your Eyes Only</h1>
+    <p>Enter the password to unlock my heart.</p>
+    <input type="password" id="password" placeholder="Enter password">
+    <br>
+    <button onclick="checkPassword()">Unlock</button>
+    <p id="error" style="color: pink;"></p>
+</div>
+
+<div class="container hidden" id="letterSection">
+    <div class="letter">
+        <h1>My Love,</h1>
+        <p>
+            If you're reading this, it means you hold the key —
+            not just to this page, but to my heart.
+        </p>
+
+        <p>
+            In a world that moves too fast, you are my pause.
+            My safe place. My favorite chapter.
+        </p>
+
+        <p>
+            Every laugh, every quiet moment,
+            every memory we build —
+            they mean more to me than I can ever fully explain.
+        </p>
+
+        <p>
+            I would choose you.
+            In every lifetime.
+            In every universe.
+        </p>
+
+        <h2>Always yours.</h2>
+    </div>
+
+    <audio autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+    </audio>
+</div>
+
+<script>
+function checkPassword() {
+    var password = document.getElementById("password").value;
+    if(password === "forever") {   // CHANGE THIS PASSWORD
+        document.getElementById("login").classList.add("hidden");
+        document.getElementById("letterSection").classList.remove("hidden");
+    } else {
+        document.getElementById("error").innerText = "Wrong password. Try again, love.";
+    }
+}
+</script>
+
+</body>
+</html>
